@@ -28,7 +28,7 @@ public class Repuestos {
     @JoinColumn(name = "id_proveedor", nullable = false)
     private Proveedor proveedor;
 //-------------
-    
+
     public Integer getIdRepuesto() {
         return idRepuesto;
     }
