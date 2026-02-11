@@ -23,12 +23,12 @@ public class Repuestos {
     @Column(name = "precio_venta")
     private Double precioVenta;
 
-    // Relación con Proveedor
+//-------------
     @ManyToOne
     @JoinColumn(name = "id_proveedor", nullable = false)
     private Proveedor proveedor;
-
-    // Getters y Setters
+//-------------
+    
     public Integer getIdRepuesto() {
         return idRepuesto;
     }
