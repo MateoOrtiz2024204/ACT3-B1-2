@@ -1,8 +1,8 @@
 package com.mateoortiz.repuestosAutomotrices.entity;
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 @Table(name = "Ventas")
@@ -10,28 +10,34 @@ public class Ventas {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     @Column(name = "id_venta")
     private Integer idVenta;
 
     @Column(name = "fecha_venta")
+    @NotNull(message = "La fecha no puede estar vacía")
     private LocalDate fechaVenta;
 
     @Column(name = "cantidad")
+    @NotNull(message = "La cantidad no puede estar vacía")
+    @Min(value = 1, message = "La cantidad debe ser mayor a 0")
     private Integer cantidadRepuesto;
 
     @Column(name = "total")
+    @NotNull(message = "El total no puede estar vacío")
+    @DecimalMin(value = "0.01", message = "El total debe ser mayor a 0")
     private Double totalRepuesto;
 
-    //-------------------
     @ManyToOne
     @JoinColumn(name = "id_empleado", nullable = false)
+    @NotNull(message = "El empleado no puede estar vacío")
     private Empleado empleado;
 
     @ManyToOne
     @JoinColumn(name = "id_repuesto", nullable = false)
+    @NotNull(message = "El repuesto no puede estar vacío")
     private Repuestos repuestos;
 
+    // Getters y Setters
     public Integer getIdVenta() {
         return idVenta;
     }
