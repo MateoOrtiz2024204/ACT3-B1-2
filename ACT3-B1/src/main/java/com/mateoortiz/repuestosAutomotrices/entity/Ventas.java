@@ -31,7 +31,6 @@ public class Ventas {
     @ManyToOne
     @JoinColumn(name = "id_repuesto", nullable = false)
     private Repuestos repuestos;
-    //-------------------
 
     public Integer getIdVenta() {
         return idVenta;
@@ -41,11 +40,11 @@ public class Ventas {
         this.idVenta = idVenta;
     }
 
-    public Date getFechaVenta() {
+    public LocalDate getFechaVenta() {
         return fechaVenta;
     }
 
-    public void setFechaVenta(Date fechaVenta) {
+    public void setFechaVenta(LocalDate fechaVenta) {
         this.fechaVenta = fechaVenta;
     }
 
@@ -57,11 +56,11 @@ public class Ventas {
         this.cantidadRepuesto = cantidadRepuesto;
     }
 
-    public Integer getTotalRepuesto() {
+    public Double getTotalRepuesto() {
         return totalRepuesto;
     }
 
-    public void setTotalRepuesto(Integer totalRepuesto) {
+    public void setTotalRepuesto(Double totalRepuesto) {
         this.totalRepuesto = totalRepuesto;
     }
 
